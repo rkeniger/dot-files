@@ -34,25 +34,6 @@ export VISUAL=$EDITOR
 # sets title of window to be user@host
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"' 
 
-alias ls='ls -G'
-alias ll='ls -lah'
-alias ..='cd ..;' # can then do .. .. .. to move up multiple directories.
-alias ...='.. ..'
-alias g='grep -i'  #case insensitive grep
-alias ducks='du -cks * | sort -rn|head -11' # Lists the size of all the folders$
-alias top='top -o cpu'
-alias systail='tail -f /var/log/system.log'
-# useful command to find what you should be aliasing:
-alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
-
-# rails stuff
-alias rlog='tail -f -0 ./log/*.log'
-alias ss='ruby ./script/server'
-alias sc='ruby ./script/console'
-alias cdm='cap deploy deploy:migrate'
-
-alias startpg='sudo /Library/StartupItems/PostgreSQL/PostgreSQL start'
-
 # Gem Doc
 export GEMDIR=`gem env gemdir`
 gemdoc() {
@@ -65,7 +46,6 @@ _gemdocomplete() {
 
 complete -o default -o nospace -F _gemdocomplete gemdoc
 complete -C ~/.rake-completion.rb -o default rake
-
 
 # readline settings
 bind "set completion-ignore-case on" 
@@ -81,16 +61,16 @@ if [ ! -f ~/.dirs ]; then
 	touch ~/.dirs
 fi
 
-alias show='cat ~/.dirs'
 save (){
 	command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ; 
 }
 source ~/.dirs  # Initialization for the above 'save' facility: source the .dirs file
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
+alias show='cat ~/.dirs'
 
 # history (bigger size, no duplicates, always append):
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
 
-alias h='history|g'
+
