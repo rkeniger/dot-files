@@ -60,7 +60,6 @@ fi
 if [ ! -f ~/.dirs ]; then
 	touch ~/.dirs
 fi
-
 save (){
 	command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ; 
 }
@@ -72,5 +71,3 @@ alias show='cat ~/.dirs'
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
-
-
