@@ -17,24 +17,18 @@ alias gdc='git-svn dcommit'
 alias gk='gitk --all &'
 
 alias gpatch='git diff master -p'
-# alias up='sake git:update' - need to priorities origin vs git-svn
-function gpall() {
-  git push rubyforge master --tags
-  git push origin master --tags
-}
+
 alias gitrm="git stat | grep deleted | awk '{print $3}' | xargs git rm"
 alias gitx="open -b nl.frim.GitX"
                                 
 # End Dr Nic Compatibility Mode
                             
 # Bo's preferred aliases
-alias gi='git init'
-alias gac='gca'
-alias gps='gp'
-alias gpl='gl'
-alias gpo='gp origin master'
+# alias gi='git init'
+# alias gac='gca'
+# alias gps='gp'
+# alias gpl='gl'
+# alias gpo='gp origin master'
 
+# ignores empty directories
 alias ignore_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
-
-export PATH=/usr/local/git/bin:$PATH
-export MANPATH=/usr/local/git/man:$MANPATH
