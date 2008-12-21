@@ -1,4 +1,3 @@
-# Dr Nic Compatibility Mode
 
 alias gst='git status'
 alias gl='git pull'
@@ -20,15 +19,6 @@ alias gpatch='git diff master -p'
 
 alias gitrm="git stat | grep deleted | awk '{print $3}' | xargs git rm"
 alias gitx="open -b nl.frim.GitX"
-                                
-# End Dr Nic Compatibility Mode
-                            
-# Bo's preferred aliases
-# alias gi='git init'
-# alias gac='gca'
-# alias gps='gp'
-# alias gpl='gl'
-# alias gpo='gp origin master'
 
 # ignores empty directories
 alias ignore_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'

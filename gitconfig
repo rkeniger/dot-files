@@ -1,6 +1,6 @@
 [user]
-  name = Bodaniel Jeanes
-  email = me@bjeanes.com
+	name = Nick Partridge
+  email = nkpart@gmail.com
 [merge]
   summary = true
 	tool = opendiff
@@ -16,10 +16,9 @@
   status = auto
   ui = auto
 [github]
-	user = bjeanes
-	token = df574517df9e5cef449ff0010fdce8b6
+	user = nkpart
+	token = 
 [core]
   editor = mate -w
   excludesfile = ~/.gitignore
 	whitespace = fix
-

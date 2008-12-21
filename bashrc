@@ -2,6 +2,7 @@ export PATH="/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/:$PA
 export PATH="/Library/PostgreSQL8/bin/:$PATH"     
 export PATH="/usr/local/mysql/bin/:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/bin:~/.cabal/bin:$PATH
 
 export PS1='\h:\W \u$(__git_ps1 " \[${COLOR_RED}\](%s)\[${COLOR_NC}\]")\$ '
 export TERM=xterm-color
@@ -12,19 +13,20 @@ export GIT_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
 # sets title of window to be user@host
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"' 
+# verifies you didn't use something that could've been an alias!
+verify_not_alias() {
+	last=`history 1`
+	aliases=`alias`
+	ruby ~/p/dot-files/verify.rb "$aliases" "$last"
+}
+
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"; verify_not_alias' 
 
 # Gem Doc
 export GEMDIR=`gem env gemdir`
 gemdoc() {
   open $GEMDIR/doc/`$(which ls) $GEMDIR/doc | grep $1 | sort | tail -1`/rdoc/index.html
 }
-_gemdocomplete() {
-  COMPREPLY=($(compgen -W '$(`which ls` $GEMDIR/doc)' -- ${COMP_WORDS[COMP_CWORD]}))
-  return 0
-}
-
-complete -o default -o nospace -F _gemdocomplete gemdoc
 
 # readline settings
 bind "set completion-ignore-case on" 
@@ -32,8 +34,8 @@ bind "set bell-style none" # No bell, because it's damn annoying
 bind "set show-all-if-ambiguous On" # this allows you to automatically show completion without double tab-ing
 
 # Turn on advanced bash completion if the file exists (get it here: http://www.caliban.org/bash/index.shtml#completion)
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
 fi
 
 if [ ! -f ~/.dirs ]; then
