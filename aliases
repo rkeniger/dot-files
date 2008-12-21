@@ -17,3 +17,4 @@ alias cdm='cap deploy deploy:migrate'
 
 alias startpg='sudo /Library/StartupItems/PostgreSQL/PostgreSQL start'
 alias h='history|g'
+alias r='rake'
