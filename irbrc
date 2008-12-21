@@ -1,4 +1,3 @@
-# require 'wirble'
 require 'rubygems'
 require 'wirble'
 
