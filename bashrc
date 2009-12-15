@@ -3,30 +3,40 @@ export PATH="/Library/PostgreSQL8/bin/:$PATH"
 export PATH="/usr/local/mysql/bin/:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=~/bin:~/.cabal/bin:$PATH
+export PATH=/opt/iphone/bin:$PATH
+export PATH=/opt/scala-2.8/bin:$PATH
+export PATH=~/.gem/ruby/1.8/bin:$PATH
+# For mercurial
+export PYTHONPATH=/usr/local/lib/python2.5/site-packages:$PYTHONPATH
 
-export PS1='\h:\W \u$(__git_ps1 " \[${COLOR_RED}\](%s)\[${COLOR_NC}\]")\$ '
+smiley_status() {
+  if [ $? = 0 ]; then
+    export SMILEY="\001\033[32m\002⚡\001\033[0m\002"
+  else
+    export SMILEY="\001\033[31m\002☢\001\033[0m\002"
+  fi
+}
+
+export PS1='\w $(__git_ps1 " \[${COLOR_RED}\](%s)\[${COLOR_NC}\]")\n$(echo -ne $SMILEY) ∴ '
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
-export EDITOR='/opt/local/bin/mate -w'
+export EDITOR='~/bin/mate -w'
 export GIT_EDITOR=$EDITOR
-export VISUAL=$EDITOR
+export VISUAL=$EDITOR``
 
-# sets title of window to be user@host
-# verifies you didn't use something that could've been an alias!
+export RUBYOPT="rubygems"
+
 verify_not_alias() {
 	last=`history 1`
 	aliases=`alias`
 	ruby ~/p/dot-files/verify.rb "$aliases" "$last"
 }
 
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"; verify_not_alias' 
+export PROMPT_COMMAND='smiley_status'
+#export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"; verify_not_alias' 
 
-# Gem Doc
-export GEMDIR=`gem env gemdir`
-gemdoc() {
-  open $GEMDIR/doc/`$(which ls) $GEMDIR/doc | grep $1 | sort | tail -1`/rdoc/index.html
-}
+#export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"'
 
 # readline settings
 bind "set completion-ignore-case on" 
@@ -37,16 +47,6 @@ bind "set show-all-if-ambiguous On" # this allows you to automatically show comp
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
-
-if [ ! -f ~/.dirs ]; then
-	touch ~/.dirs
-fi
-save (){
-	command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ; 
-}
-source ~/.dirs  # Initialization for the above 'save' facility: source the .dirs file
-shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
-alias show='cat ~/.dirs'
 
 # history (bigger size, no duplicates, always append):
 export HISTCONTROL=erasedups

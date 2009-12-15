@@ -17,8 +17,11 @@
   ui = auto
 [github]
 	user = nkpart
-	token = 
+	token = f184d217a0855563622fa1ed3818fef5
 [core]
   editor = mate -w
   excludesfile = ~/.gitignore
 	whitespace = fix
+[default]
+	push = tracking
+	pull = tracking

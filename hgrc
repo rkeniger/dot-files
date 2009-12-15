@@ -1,0 +1,23 @@
+[ui]
+username = Nick Partridge <nkpart@gmail.com>
+
+[extensions]
+#alias =
+color =
+zeroconf =
+hgext.record =
+hgext.graphlog = 
+hgext.bookmarks =
+hgext.hg-git = ~/bin/hg-git
+
+[alias]
+# short log
+llog = log --limit 10
+
+[color]
+status.modified = magenta bold
+status.added = green bold
+status.removed = red bold
+status.deleted = cyan bold
+status.unknown = blue bold
+status.ignored = black bold
