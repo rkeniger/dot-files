@@ -43,6 +43,8 @@ alias gk='gitk --all &'
 alias gpatch='git diff master -p'
 alias gitrm="git stat | grep deleted | awk '{print $3}' | xargs git rm"
 alias gitx="open -b nl.frim.GitX"
+alias gm='git merge --no-ff'
+
 alias up='svn up' # trust me 3 chars makes a different
 alias st='svn st' # local file changes
 alias sstu='svn st -u' # remote repository changes
@@ -52,5 +54,14 @@ alias sra='svn revert -R *'
 alias add_all="svn st | grep ? | awk '{ print  }' | xargs svn add"
 alias ox="open *.xcodeproj"
 alias ea='mate -w ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
+alias deps='mate ~/.babushka/deps'
+
 alias gist="open http://gist.github.com"
 
+function go () {
+  PROJECT_DIR="/Users/nkpart/p/mogen/projects"
+  VAL=`find $PROJECT_DIR -maxdepth 1 | grep \/$1 | head -n 1`
+	cd $VAL
+}
+
+alias ms="mate src project/build.properties project/build/*.scala"

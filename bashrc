@@ -4,10 +4,11 @@ export PATH="/usr/local/mysql/bin/:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=~/bin:~/.cabal/bin:$PATH
 export PATH=/opt/iphone/bin:$PATH
-export PATH=/opt/scala-2.8/bin:$PATH
+export PATH=/opt/scala/bin:$PATH
 export PATH=~/.gem/ruby/1.8/bin:$PATH
 # For mercurial
 export PYTHONPATH=/usr/local/lib/python2.5/site-packages:$PYTHONPATH
+
 
 smiley_status() {
   if [ $? = 0 ]; then
@@ -18,12 +19,14 @@ smiley_status() {
 }
 
 export PS1='\w $(__git_ps1 " \[${COLOR_RED}\](%s)\[${COLOR_NC}\]")\n$(echo -ne $SMILEY) ∴ '
+export LESS="-R"
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export EDITOR='~/bin/mate -w'
 export GIT_EDITOR=$EDITOR
 export VISUAL=$EDITOR``
+export JAVA_OPTS="-Dfile.encoding=UTF-8"
 
 export RUBYOPT="rubygems"
 
@@ -47,6 +50,8 @@ bind "set show-all-if-ambiguous On" # this allows you to automatically show comp
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
+
+. /usr/local/git/contrib/completion/git-completion.bash
 
 # history (bigger size, no duplicates, always append):
 export HISTCONTROL=erasedups
