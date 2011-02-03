@@ -7,6 +7,10 @@ alias ducks='du -cks * | sort -rn|head -11' # Lists the size of all the folders$
 alias top='top -o cpu'
 alias systail='tail -f /var/log/system.log'
 
+function h() {
+  hoogle --color --count=30 ${1} 
+}
+
 # useful command to find what you should be aliasing:
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 
@@ -23,45 +27,62 @@ echo INSERT INTO tablename \(column1, column2\) VALUES \(value1, value2\)
 echo UPDATE tablename SET column1 = value1 WHERE condition
 "
 
-alias to_mp4="HandBrakeCLI -i %1 -o %1.mp4 --preset=\"iPhone & iPod Touch\""
+alias foo="echo \$2 \$1"
 
-alias gst='git status'
+function to_ipod() {
+   VAL="HandBrakeCLI -i ${1} -o ${1}.mp4 --preset=\"iPhone & iPod Touch\""
+   echo $VAL
+   sh -c $VAL
+}
+
+
 alias gl='git pull'
+
+alias gst='git status -sb'
+alias glr='git pull --rebase'
+alias glg='git log --oneline --decorate'
+alias gsu='git submodule update'
+
 alias gp='git push'
 alias gpa='git push-all' # see [alias] in ~/.gitconfig
-alias gd='git diff | mate'
 alias ga='git add'
-alias gcl='git config --list'
+alias gaa='git add -A'
 alias gc='git commit -v'
-alias gca='git commit -v -a'
 alias gb='git branch'
-alias gbc='git branch --color'
 alias gba='git branch -a'
 alias gco='git checkout'
-alias gdc='git-svn dcommit'
-alias gk='gitk --all &'
-alias gpatch='git diff master -p'
-alias gitrm="git stat | grep deleted | awk '{print $3}' | xargs git rm"
+
 alias gitx="open -b nl.frim.GitX"
 alias gm='git merge --no-ff'
+alias gfo='git fetch origin'
+alias grb='git rebase'
+alias gdi='git diff --staged'
+alias gd='git diff'
 
-alias up='svn up' # trust me 3 chars makes a different
-alias st='svn st' # local file changes
-alias sstu='svn st -u' # remote repository changes
-alias ci="svn commit -m ''" # commit
-alias svn_branch_start='svn log --verbose --stop-on-copy .'
-alias sra='svn revert -R *'
-alias add_all="svn st | grep ? | awk '{ print  }' | xargs svn add"
-alias ox="open *.xcodeproj"
-alias ea='mate -w ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
+alias m=mvim
+
+alias ox="open *.xcodeproj || open iPhone/*.xcodeproj || open iPadPrototype/*.xcodeproj"
+alias ea='mvim -f ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
 alias deps='mate ~/.babushka/deps'
 
 alias gist="open http://gist.github.com"
 
+alias days="git log --since='2 month ago' --author=nkpart | grep Date | awk '{print \$2, \$3, \$4}' | uniq"
+
+alias my_work="git log --since='2 month ago' --date=short --author=nkpart --pretty=format:\"%ad\" | uniq"
+
 function go () {
-  PROJECT_DIR="/Users/nkpart/p/mogen/projects"
-  VAL=`find $PROJECT_DIR -maxdepth 1 | grep \/$1 | head -n 1`
-	cd $VAL
+  PROJECT_DIRS="$HOME/p/mogen/projects $HOME/p/mogen/projects/oomph-clients $HOME/railscamp $HOME/p/mogen/kits $HOME/p"
+  TEST1=`find $PROJECT_DIRS -maxdepth 1 | grep \/$1 | head -n 1`
+  TEST2=`find $PROJECT_DIRS -maxdepth 1 | grep \/[^\/]*$1[^\/]* | head -n 1`
+  if [ ! -n $TEST1 ]
+  then
+    cd $TEST1
+  else
+    cd $TEST2
+  fi
 }
 
-alias ms="mate src project/build.properties project/build/*.scala"
+alias make_six='sed -i "" "s,<integer>5</integer>,<integer>6</integer>," Resources/Info.plist'
+alias make_six_qa='sed -i "" "s,<integer>5</integer>,<integer>6</integer>," Resources/Info-QA.plist'
+

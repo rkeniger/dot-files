@@ -6,9 +6,16 @@ export PATH=~/bin:~/.cabal/bin:$PATH
 export PATH=/opt/iphone/bin:$PATH
 export PATH=/opt/scala/bin:$PATH
 export PATH=~/.gem/ruby/1.8/bin:$PATH
+export PATH=/opt/appengine-java-sdk-1.3.4/bin:$PATH
+export PATH=$PATH:/usr/local/Cellar/node/0.1.96/bin
+export PATH=$PATH:/opt/play
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 # For mercurial
 export PYTHONPATH=/usr/local/lib/python2.5/site-packages:$PYTHONPATH
 
+export APPENGINE_SDK_HOME=/opt/appengine-java-sdk-1.3.4
 
 smiley_status() {
   if [ $? = 0 ]; then
@@ -18,7 +25,7 @@ smiley_status() {
   fi
 }
 
-export PS1='\w $(__git_ps1 " \[${COLOR_RED}\](%s)\[${COLOR_NC}\]")\n$(echo -ne $SMILEY) ∴ '
+export PS1='\w $(__git_ps1 " \[${COLOR_RED}\](%s$(evil_git_dirty))\[${COLOR_NC}\]")\n$(echo -ne $SMILEY) '
 export LESS="-R"
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
@@ -36,6 +43,11 @@ verify_not_alias() {
 	ruby ~/p/dot-files/verify.rb "$aliases" "$last"
 }
 
+function evil_git_dirty {
+  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo " *"
+}
+
+
 export PROMPT_COMMAND='smiley_status'
 #export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"; verify_not_alias' 
 
@@ -51,7 +63,7 @@ if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
 
-. /usr/local/git/contrib/completion/git-completion.bash
+. /usr/local/etc/bash_completion.d/git-completion.bash
 
 # history (bigger size, no duplicates, always append):
 export HISTCONTROL=erasedups

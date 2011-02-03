@@ -5,9 +5,6 @@
   summary = true
 	tool = opendiff
 [alias]
-  co = checkout
-  put = push origin HEAD
-  push-all = "!for i in $(git config --list | grep -E ^remote\\..+\\.url | sed -E 's/^remote\\.(.*)\\.url=.*/\\1/'); do git push $i master; done"
 	lg = log --graph --since='2 weeks ago' --pretty=format:'%Cblue%h%Creset %cr %Cgreen%an%Creset %s'
 [apply]
   whitespace = nowarn
@@ -20,9 +17,11 @@
 	user = nkpart
 	token = f184d217a0855563622fa1ed3818fef5
 [core]
-  editor = mate -w
+  editor = mvim -f
   excludesfile = ~/.gitignore
 	whitespace = fix
 [default]
 	push = tracking
 	pull = tracking
+[diff]
+	tool = vimdiff
