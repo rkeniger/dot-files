@@ -18,6 +18,7 @@ svn = ~/.hgext/hgsubversion/hgsubversion
 [alias]
 #fits in 1 terminal window if single line commit messages
 gl = glog -l4
+lc = log --style compact
 
 # short log
 llog = log --limit 10
