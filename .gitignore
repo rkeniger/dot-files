@@ -1,1 +1,8 @@
 .DS_Store
+*.pyc
+.hg
+.hgignore
+build
+MANIFEST
+*.egg-info
+dist
