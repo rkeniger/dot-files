@@ -1,27 +1,21 @@
 [user]
-	name = Nick Partridge
-  email = nkpart@gmail.com
-[merge]
-  summary = true
-	tool = opendiff
+	name = Kim Hunter
+	email = bigkm1@gmail.com
+
 [alias]
-	lg = log --graph --since='2 weeks ago' --pretty=format:'%Cblue%h%Creset %cr %Cgreen%an%Creset %s'
-[apply]
-  whitespace = nowarn
+	ci = commit
+	st = status
+	co = checkout
+	up = checkout
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	lgp = log -p --reverse --pretty=format:'%Cred%h%Creset - %Cblue(%an)%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	submod = submodule
+	subrepo = submodule
+
 [color]
-  branch = auto
-  diff = auto
-  status = auto
-  ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+
 [github]
-	user = nkpart
-	token = f184d217a0855563622fa1ed3818fef5
-[core]
-  editor = mvim -f
-  excludesfile = ~/.gitignore
-	whitespace = fix
-[default]
-	push = tracking
-	pull = tracking
-[diff]
-	tool = vimdiff
+	user = bigkm
