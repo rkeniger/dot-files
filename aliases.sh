@@ -14,7 +14,7 @@ alias sleeep="osascript -e 'tell application \"System Events\" to sleep'"
 alias kf="killall Finder"
 alias svnig="svn propedit svn:ignore"
 alias ka="killall"
-
+alias glat="git --no-pager log -n3"
 
 function lookfor() {
   grep -EiIrl "$*" ./* | grep -v '.svn'
