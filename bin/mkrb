@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Create a temp ruby file for quick scripts 
+# and open in TextMate
+#
+TMP_FILE=`mktemp -t tmp_ruby`
+RB_FILE=${TMP_FILE}.rb
+
+mv $TMP_FILE $RB_FILE
+echo '#!/usr/bin/env ruby' > $RB_FILE
+mate $RB_FILE
+
