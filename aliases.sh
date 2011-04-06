@@ -49,6 +49,11 @@ function to_ipod() {
    sh -c $VAL
 }
 
+function fill_file() {
+  let A=$1*1024*1024
+	dd if=/dev/zero of=filefile${2}.filler bs=$A count=1 seek=0
+  echo creating file of size ${1}mb
+}
 
 alias gl='git pull'
 
