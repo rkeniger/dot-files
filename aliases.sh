@@ -78,7 +78,7 @@ alias gco='git checkout'
 # 
 # alias gitx="open -b nl.frim.GitX"
 # alias gm='git merge --no-ff'
-# alias gfo='git fetch origin'
+alias gfo='git fetch origin'
 # alias grb='git rebase'
 # alias gdi='git diff --staged'
 # alias gd='git diff'
