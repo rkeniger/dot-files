@@ -8,5 +8,6 @@ RB_FILE=${TMP_FILE}.rb
 
 mv $TMP_FILE $RB_FILE
 echo '#!/usr/bin/env ruby' > $RB_FILE
-mate $RB_FILE
+chmod 744 $RB_FILE
+mate -l2 $RB_FILE
 
