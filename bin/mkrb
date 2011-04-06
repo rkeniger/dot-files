@@ -1,13 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 #
 # Create a temp ruby file for quick scripts 
 # and open in TextMate
 #
-TMP_FILE=`mktemp -t tmp_ruby`
-RB_FILE=${TMP_FILE}.rb
+require "date"
 
-mv $TMP_FILE $RB_FILE
-echo '#!/usr/bin/env ruby' > $RB_FILE
-chmod 744 $RB_FILE
-mate -l2 $RB_FILE
+SHEBANG="#!/usr/bin/env ruby"
+ruby_file = `mktemp -t tmp_ruby_`.chomp + ".rb"
+
+f = File.open(ruby_file,'a')
+f.write(SHEBANG + "\n")
+f.write("# Tempory Ruby File\n")
+f.write("# "+Time.now.to_s + "\n")
+f.close
+
+cursor_pos = File.open(ruby_file, 'r').readlines.size + 1
+
+File.chmod 0700, ruby_file
+
+`mate -l#{cursor_pos} #{ruby_file}`
 
