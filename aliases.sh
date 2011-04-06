@@ -15,6 +15,8 @@ alias kf="killall Finder"
 alias svnig="svn propedit svn:ignore"
 alias ka="killall"
 alias glat="git --no-pager log -n3"
+alias ku="rm -rdf build Kits; kit update"
+
 
 function lookfor() {
   grep -EiIrl "$*" ./* | grep -v '.svn'
