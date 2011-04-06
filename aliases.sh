@@ -97,16 +97,9 @@ alias ox="open *.xcodeproj || open iPhone/*.xcodeproj || open iPadPrototype/*.xc
 # 
 function go () {
   PROJECT_DIRS="$HOME/Projects"
-  TEST1=`find $PROJECT_DIRS -maxdepth 1 | grep \/$1 | head -n 1`
-  TEST2=`find $PROJECT_DIRS -maxdepth 1 | grep \/[^\/]*$1[^\/]* | head -n 1`
-  if [ ! -n $TEST1 ]
-  then
-    cd $TEST1
-  else
-    cd $TEST2
-  fi
+	  cd `find $PROJECT_DIRS -maxdepth 2 | grep \/$1 | head -n 1`
 }
-# 
+
 # alias make_six='sed -i "" "s,<integer>5</integer>,<integer>6</integer>," Resources/Info.plist'
 # alias make_six_qa='sed -i "" "s,<integer>5</integer>,<integer>6</integer>," Resources/Info-QA.plist'
 # 
