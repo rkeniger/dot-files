@@ -43,16 +43,6 @@ alias pp="cd ~/Library/MobileDevice/Provisioning\ Profiles"
 
 alias r='rake'
 
-
-alias sql="echo Okay idjit, it goes like this:
-echo CREATE TABLE tablename \(id INTEGER, name VARCHAR\)
-echo SELECT row FROM tablename WHERE condition
-echo INSERT INTO tablename \(column1, column2\) VALUES \(value1, value2\)
-echo UPDATE tablename SET column1 = value1 WHERE condition
-"
-
-alias foo="echo \$2 \$1"
-
 function to_ipod() {
    VAL="HandBrakeCLI -i ${1} -o ${1}.mp4 --preset=\"iPhone & iPod Touch\""
    echo $VAL
@@ -96,8 +86,13 @@ alias ox="open *.xcodeproj || open iPhone/*.xcodeproj || open iPadPrototype/*.xc
 # alias my_work="git log --since='2 month ago' --date=short --author=nkpart --pretty=format:\"%ad\" | uniq"
 # 
 function go () {
-  PROJECT_DIRS="$HOME/Projects"
-	  cd `find $PROJECT_DIRS -maxdepth 2 | grep \/$1 | head -n 1`
+	PROJECT_DIRS="$HOME/Projects"
+	RES=`find $PROJECT_DIRS -iname "${1}*" -maxdepth 1 | head -n 1`
+	if [[ "$RES" == "" ]]; then
+		cd "$PROJECT_DIRS"
+	else
+		cd "$RES"
+	fi
 }
 
 # alias make_six='sed -i "" "s,<integer>5</integer>,<integer>6</integer>," Resources/Info.plist'
