@@ -1,17 +1,10 @@
-export PATH="/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/:$PATH"
-export PATH="/Library/PostgreSQL8/bin/:$PATH"     
-export PATH="/usr/local/mysql/bin/:$PATH"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=~/bin:~/.cabal/bin:$PATH
-export PATH=/opt/iphone/bin:$PATH
-export PATH=/opt/scala/bin:$PATH
-export PATH=~/.gem/ruby/1.8/bin:$PATH
-export PATH=/opt/appengine-java-sdk-1.3.4/bin:$PATH
-export PATH=$PATH:/usr/local/Cellar/node/0.1.96/bin
-export PATH=$PATH:/opt/play
-export PATH=/usr/local/bin:$PATH
+
+# default path so if i reload i don't get slow downs
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+PATH=~/.bin:~/.cabal/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
 # For mercurial
 export PYTHONPATH=/usr/local/lib/python2.5/site-packages:$PYTHONPATH
 
@@ -30,9 +23,9 @@ export LESS="-R"
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
-export EDITOR='~/bin/mate -w'
+export EDITOR='vim'
 export GIT_EDITOR=$EDITOR
-export VISUAL=$EDITOR``
+export VISUAL="mate -r"
 export JAVA_OPTS="-Dfile.encoding=UTF-8"
 
 export RUBYOPT="rubygems"
@@ -40,7 +33,7 @@ export RUBYOPT="rubygems"
 verify_not_alias() {
 	last=`history 1`
 	aliases=`alias`
-	ruby ~/p/dot-files/verify.rb "$aliases" "$last"
+	ruby ~/Projects/dot-files/verify.rb "$aliases" "$last"
 }
 
 function evil_git_dirty {
