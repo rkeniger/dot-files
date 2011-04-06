@@ -18,7 +18,7 @@ smiley_status() {
   fi
 }
 
-export PS1='\w $(__git_ps1 " \[${COLOR_RED}\](%s$(evil_git_dirty))\[${COLOR_NC}\]")\n$(echo -ne $SMILEY) '
+export PS1='$(hostname -s): \w $(__git_ps1 " \[${COLOR_RED}\](%s$(evil_git_dirty))\[${COLOR_NC}\]")\n$(echo -ne $SMILEY) '
 export LESS="-R"
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
