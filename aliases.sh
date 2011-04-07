@@ -16,6 +16,7 @@ alias svnig="svn propedit svn:ignore"
 alias ka="killall"
 alias glat="git --no-pager log -n3"
 alias ku="rm -rdf build Kits; kit update"
+alias dfh="df -h"
 
 
 function lookfor() {
@@ -50,8 +51,8 @@ function to_ipod() {
 }
 
 function fill_file() {
-  let A=$1*1024*1024
-	dd if=/dev/zero of=filefile${2}.filler bs=$A count=1 seek=0
+  let A=1024*1024
+	dd if=/dev/zero of=filefile${2}.filler bs=$A count=$1 seek=0
   echo creating file of size ${1}mb
 }
 
