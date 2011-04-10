@@ -1,6 +1,11 @@
 .DS_Store
 *.pyc
+*dot
+*.jar
 .hg
+maybe_pty.tar
+*.swp
+rar
 .hgignore
 build
 MANIFEST
