@@ -10,7 +10,6 @@ alias du1="du  -hd1"
 alias mate="mate -r"
 alias vi="vim"
 alias editprofile="mate -w  ~/.profile && source ~/.profile";
-alias sleeep="osascript -e 'tell application \"System Events\" to sleep'"
 alias kf="killall Finder"
 alias svnig="svn propedit svn:ignore"
 alias ka="killall"
