@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+# Tempory Ruby File
+# 2011-04-12 00:14:33 +1000
+
+exit unless ARGV.size == 1
+
+def put_to_sleep
+  `osascript -e 'tell application "System Events" to sleep'`
+end
+
+count = ARGV[0].to_i
+if ARGV[0] =~ /(\d+)(m|h|s)/
+  multi = {"m" => 60, "h" => 60*60, "s" => 1}
+  count = $1.to_i
+  count *= multi[$2] if multi.key? $2
+  
+end
+
+until count.zero?
+  sleep 1
+  puts "#{count.to_s}s until shutdown \033[1A" if count % 10 == 0
+  count -= 1
+end
+
+put_to_sleep
