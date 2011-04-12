@@ -15,16 +15,19 @@ fi
 # fi
 echo "Attempting to create ${orig}MB ramdisk"
 diskutil erasevolume HFS+ "$volume_name" `hdiutil attach -nomount ram://$size` > /dev/null
-icon="7"; #`php -r 'echo rand(7,7);'`
+icon="1"; #`php -r 'echo rand(7,7);'`
 
 if [[ -d "/Volumes/$volume_name" ]]; then
 	echo SUCCESS
-	cp ~/.icons/$icon.icns ~/.icons/.VolumeIcon.icns
-	mv ~/.icons/.VolumeIcon.icns "/Volumes/$volume_name/.VolumeIcon.icns";
-	
+	iconfile=~/.icons/$icon.icns
+	if [[ -f "$iconfile" ]]; then
+		# doesn't load icon unless moved in
+		cp ~/.icons/$icon.icns ~/.icons/.VolumeIcon.icns
+		mv ~/.icons/.VolumeIcon.icns "/Volumes/$volume_name/.VolumeIcon.icns";
+	fi	
 	SETFILE -a "C" "/Volumes/$volume_name";
 	osascript -e 'tell app "Finder" to update desktop';
-
+	open "/Volumes/$volume_name"
 	exit 0;
 fi
 echo FAILED
