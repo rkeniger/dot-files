@@ -22,6 +22,10 @@ function lookfor() {
   grep -EiIrl "$*" ./* | grep -v '.svn'
 }
 
+function gtow() {
+  go
+  git clone $1 $2 && gittower $2
+}
 removeduplines() {
 awk '{
 if ($0 in stored_lines)
