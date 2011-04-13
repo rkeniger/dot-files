@@ -61,7 +61,7 @@ function fill_file() {
 
 alias gl='git pull'
 
-alias gst='git status -sb'
+alias gs='git status -sb'
 alias glr='git pull --rebase'
 alias glg='git log --oneline --decorate'
 alias gsu='git submodule update'
