@@ -55,8 +55,10 @@ bind "set show-all-if-ambiguous On" # this allows you to automatically show comp
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
+# Git completion
+git_completion=/usr/local/etc/bash_completion.d/git-completion.bash
+if [ -f $git_completion ] ; then source $git_completion; fi
 
-. /usr/local/etc/bash_completion.d/git-completion.bash
 
 # history (bigger size, no duplicates, always append):
 export HISTCONTROL=erasedups
