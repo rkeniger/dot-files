@@ -13,9 +13,11 @@ alias editprofile="mate -w  ~/.profile && source ~/.profile";
 alias kf="killall Finder"
 alias svnig="svn propedit svn:ignore"
 alias ka="killall"
+alias kax="ka Xcode"
 alias glat="git --no-pager log -n3"
 alias ku="rm -rdf build Kits; kit update"
 alias dfh="df -h"
+alias xcb="xcodebuild"
 
 
 function lookfor() {
