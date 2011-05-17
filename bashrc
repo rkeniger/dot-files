@@ -24,7 +24,7 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export EDITOR='vim'
 export GIT_EDITOR=$EDITOR
-export VISUAL="mate -r"
+#export VISUAL="mate -r"
 export JAVA_OPTS="-Dfile.encoding=UTF-8"
 
 export RUBYOPT="rubygems"
