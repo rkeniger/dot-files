@@ -11,6 +11,7 @@
 	lgp = log -p --reverse --pretty=format:'%Cred%h%Creset - %Cblue(%an)%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	submod = submodule
 	subrepo = submodule
+	rollback = reset --soft HEAD^
 
 [color]
 	diff = auto

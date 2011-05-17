@@ -12,21 +12,16 @@ build/
 *.pbxuser
 *.perspective
 *.perspectivev3
+**/project.xcworkspace
+**/xcuserdata
+*.mode1v3
+*.mode2v3
 
 *.pyc 
 *~.nib/
 
-*.mode1v3
-*.mode2v3
 
 *.tm_build_errors
 
 .svn
 .hg
-
-*.xcuserstate
-*.xcbkptlist
-
-*.xcworkspace
-**/project.xcworkspace
-xcuserdata

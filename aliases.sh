@@ -18,6 +18,7 @@ alias glat="git --no-pager log -n3"
 alias ku="rm -rdf build Kits; kit update"
 alias dfh="df -h"
 alias xcb="xcodebuild"
+alias xcb-debug="time xcodebuild -configuration Debug"
 
 
 function lookfor() {

@@ -3,7 +3,6 @@
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 PATH=~/.bin:~/.cabal/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # For mercurial
 export PYTHONPATH=/usr/local/lib/python2.5/site-packages:$PYTHONPATH
@@ -64,3 +63,5 @@ if [ -f $git_completion ] ; then source $git_completion; fi
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
