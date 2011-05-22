@@ -11,6 +11,7 @@ zeroconf =
 hgext.record =
 hgext.graphlog = 
 hgext.bookmarks =
+purge = 
 hgbb = ~/.hgext/hgbb/hgbb.py
 svn = ~/.hgext/hgsubversion/hgsubversion
 
