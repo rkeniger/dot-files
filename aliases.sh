@@ -20,6 +20,7 @@ alias k="kit"
 alias dfh="df -h"
 alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
+alias goo="go oomp"
 
 
 function lookfor() {
