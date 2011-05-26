@@ -4,6 +4,8 @@
 Icon^M^M
 Thumbs.db
 
+dev-packages
+
 *.swp
 *~.nib
 
