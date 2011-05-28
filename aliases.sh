@@ -9,7 +9,6 @@ alias systail='tail -f /var/log/system.log'
 alias du1="du  -hd1"
 alias mate="mate -r"
 alias vi="vim"
-alias editprofile="mate -w  ~/.profile && source ~/.profile";
 alias kf="killall Finder"
 alias svnig="svn propedit svn:ignore"
 alias ka="killall"
@@ -24,10 +23,16 @@ alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
 alias goo="go oomp"
 
-function alias_edit() {
-	$EDITOR ~/.aliases.sh
-	. ~/.aliases.sh
+function editprofile() {
+	if [[ $# -gt 0 ]]; then
+		mate -w $1 
+		. ~/.bash_profile
+	else	
+		echo "Please Supply a file name"
+		return -1
+	fi
 }
+
 function lookfor() {
   grep -EiIrl "$*" ./* | grep -v '.svn'
 }
@@ -90,7 +95,7 @@ alias gco='git checkout'
 alias gfo='git fetch origin'
 # alias grb='git rebase'
 # alias gdi='git diff --staged'
-# alias gd='git diff'
+alias gd='git diff'
 # 
 # alias m=mvim
 # 
