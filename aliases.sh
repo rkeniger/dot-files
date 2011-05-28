@@ -18,12 +18,16 @@ alias glat="git --no-pager log -n3"
 alias ku="rm -rdf build Kits; kit update"
 alias qlp="qlmanage -p"
 alias k="kit"
+alias s="screen"
 alias dfh="df -h"
 alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
 alias goo="go oomp"
 
-
+function alias_edit() {
+	$EDITOR ~/.aliases.sh
+	. ~/.aliases.sh
+}
 function lookfor() {
   grep -EiIrl "$*" ./* | grep -v '.svn'
 }
