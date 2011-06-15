@@ -1,0 +1,71 @@
+#!/usr/bin/env ruby
+# Copyright (c) 2011 Kim Hunter.
+# All rights reserved.
+# 
+# Redistribution and use in source and binary forms are permitted provided
+# that the above copyright notice and this paragraph are duplicated in all
+# such forms and that any documentation, advertising materials, and other
+# materials related to such distribution and use acknowledge that the
+# software was developed by the Kim Hunter. The name of the copyright holder
+# may not be used to endorse or promote products derived from this software
+# without specific prior written 
+# 
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+# WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+require "rubygems"
+class RGBA
+  attr_accessor :red, :green, :blue, :alpha
+  
+  def initialize()
+    @uicolor = true
+    @red = @green = @blue = 0.0
+    @alpha = 1.0
+  end
+  
+  def isUIColor bool
+    @uicolor = bool
+  end
+  
+  def to_percent n
+    (n / 255.0).round 3
+  end
+  
+  def set_from_array(a)
+    @red ,@green ,@blue = a.map {|i| to_percent i}
+  end
+  
+  def self.from_hex hex
+    c = RGBA.new 
+    c.set_from_array(hex.match( /#?([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})/i).to_a[1,3].map! { |e| e.hex })
+    return c
+  end
+  
+  def to_color
+    obj_class = @uicolor ? 'UIColor' : 'NSColor'
+    "[#{obj_class} colorWithRed:#{red}f green:#{green}f blue:#{blue}f alpha:#{alpha}f]"
+  end
+  
+end
+
+color_flag = true
+ARGV.each do |arg|
+  if arg =~ /(-NS|-UI)/
+    color_flag = false if $1 == '-NS'
+    next
+    puts ""
+  end
+  begin
+    color = RGBA.from_hex(arg)
+    color.isUIColor color_flag
+    puts "#{arg.upcase} -> #{color.to_color}"
+  rescue
+    puts "Failed #{arg.upcase}"
+  end
+end
+
+if ARGV.size.zero?
+  puts "usage: #{File.basename __FILE__} abcd31 \\#abcd12 "
+end
+

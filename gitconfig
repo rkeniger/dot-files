@@ -20,3 +20,5 @@
 
 [github]
 	user = bigkm
+[core]
+	excludesfile = /Users/kim/.gitignore
