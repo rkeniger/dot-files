@@ -14,10 +14,16 @@ alias svnig="svn propedit svn:ignore"
 alias ka="killall"
 alias kax="ka Xcode"
 alias glat="git --no-pager log -n3"
+alias r='rake'
+
+# = Kit Related =
+alias k="kit"
+alias gok='pushd ~/.kit && git pull && popd'
+alias goku='gok && git pull && kit update'
 alias ku="rm -rdf build Kits ~/.kit/packages/*; kit update"
 alias clear-kit="mv ~/.kit/packages ~/.Trash/"
+
 alias qlp="qlmanage -p"
-alias k="kit"
 alias s="screen"
 alias dfh="df -h"
 alias xcb="xcodebuild"
@@ -61,7 +67,6 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 
 alias pp="cd ~/Library/MobileDevice/Provisioning\ Profiles"
 
-alias r='rake'
 
 function to_ipod() {
    VAL="HandBrakeCLI -i ${1} -o ${1}.mp4 --preset=\"iPhone & iPod Touch\""
