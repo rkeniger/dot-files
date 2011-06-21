@@ -35,6 +35,7 @@ endfunction
 "set et 
 set sw=4 ts=4
 set smarttab 
+set expandtab
   
 "set foldmethod=indent
 "set foldnestmax=2
