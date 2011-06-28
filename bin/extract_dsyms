@@ -21,6 +21,7 @@ zips_to_move = (zips_in_dropbox.map {|f| f.sub /\.zip$/, ''} - already_unziped)
 
 zips_to_move.each do |zipname|
   fullname = "#{BUILD_FOLDER}/#{zipname}"
+  puts "Extracting #{fullname}"
   unzip fullname, "#{DSYM_FOLDER}/#{zipname}/"  
 end
 
