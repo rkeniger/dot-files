@@ -12,6 +12,7 @@
 	submod = submodule
 	subrepo = submodule
 	rollback = reset --soft HEAD^
+    ire = rebase -i
 
 [color]
 	diff = auto
