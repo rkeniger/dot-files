@@ -14,8 +14,10 @@
 	submod = submodule
 	subrepo = submodule
 	rollback = reset --soft HEAD^
-
 	ire = rebase -i
+	unwatch = update-index --assume-unchanged
+	watch = update-index --no-assume-unchanged
+
 [color]
 	diff = auto
 	status = auto
