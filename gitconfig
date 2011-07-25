@@ -7,13 +7,15 @@
 	st = status
 	co = checkout
 	up = checkout
+	ss = stash save
+	sp = stash pop
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	lgp = log -p --reverse --pretty=format:'%Cred%h%Creset - %Cblue(%an)%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	submod = submodule
 	subrepo = submodule
 	rollback = reset --soft HEAD^
-    ire = rebase -i
 
+	ire = rebase -i
 [color]
 	diff = auto
 	status = auto
