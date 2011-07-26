@@ -1,7 +1,7 @@
 
 # default path so if i reload i don't get slow downs
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-PATH=/Developer/usr/bin/:$PATH
+PATH=/Developer/usr/bin:$PATH
 PATH=~/.bin:~/.cabal/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 

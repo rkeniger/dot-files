@@ -12,6 +12,7 @@ alias vi="vim"
 alias kf="killall Finder"
 alias svnig="svn propedit svn:ignore"
 alias ka="killall"
+alias o="open -R"
 alias kax="ka Xcode"
 alias glat="git --no-pager log -n3"
 alias r='rake'
