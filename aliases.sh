@@ -58,6 +58,26 @@ else
 }' $1  
 }
 
+# Symlink kit as a dev-package
+function link_kit() {
+	PROJECT_DIRS="$HOME/Projects"
+	DPK="dev-packages"
+	if [[ -f "KitSpec" ]]; then		
+		RES=`find $PROJECT_DIRS -iname "${1}*" -maxdepth 1 | head -n 1`
+		if [[ "$RES" == "" ]]; then
+			return "Couldn't find '$1' in $HOME/Projects/"
+		else
+			mkdir -p $DPK
+ 			cd $DPK
+			ln -s $RES $(basename $RES)
+			cd ..
+			echo "Linked Package $RES"
+		fi
+	else
+		echo "$(pwd) isn't a kit"
+	fi
+}
+
 function h() {
   hoogle --color --count=30 ${1} 
 }
