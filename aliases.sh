@@ -65,16 +65,19 @@ function link_kit() {
 	if [[ -f "KitSpec" ]]; then		
 		RES=`find $PROJECT_DIRS -iname "${1}*" -maxdepth 1 | head -n 1`
 		if [[ "$RES" == "" ]]; then
-			return "Couldn't find '$1' in $HOME/Projects/"
+			echo  "Couldn't find '$1' in $HOME/Projects/"
+			return 1
 		else
 			mkdir -p $DPK
  			cd $DPK
 			ln -s $RES $(basename $RES)
 			cd ..
 			echo "Linked Package $RES"
+			return 0
 		fi
 	else
 		echo "$(pwd) isn't a kit"
+		return 1
 	fi
 }
 
