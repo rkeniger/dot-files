@@ -1,5 +1,6 @@
 .DS_Store
 *.pyc
+.netrwhist
 *dot
 *.jar
 .hg
