@@ -67,20 +67,21 @@ function link_kit() {
 		if [[ "$RES" == "" ]]; then
 			echo  "Couldn't find '$1' in $HOME/Projects/"
 			return 1
-		else
+		elif [[ -f "$RES/KitSpec" ]]; then
 			mkdir -p $DPK
  			cd $DPK
 			ln -s $RES $(basename $RES)
 			cd ..
 			echo "Linked Package $RES"
 			return 0
+		else
+			echo "$RES isn't a kit"
 		fi
 	else
 		echo "$(pwd) isn't a kit"
 		return 1
 	fi
 }
-
 function h() {
   hoogle --color --count=30 ${1} 
 }
