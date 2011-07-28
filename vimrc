@@ -112,6 +112,7 @@ autocmd! bufwritepost .vimrc source %
 au FileType php source ~/.vim/php/php.vim 
 "au FileType php noremap ; :!php5 -l %<CR>
 "au FileType php set ts=4 sw=4 noet    
+au FileType ruby noremap ; :!ruby %<CR>
 "##############################
 "noremap ; :!fpc % ; read<CR>
 au FileType pascal,delphi noremap ; :!fpc %<CR>
