@@ -130,7 +130,7 @@ alias gd='git diff'
 # 
 # alias m=mvim
 # 
-alias ox="open *.xcodeproj || open iPhone/*.xcodeproj || open iPadPrototype/*.xcodeproj"
+alias ox="open -a $(xcode-select -print-path)/Applications/Xcode.app *.xcodeproj || open -a $(xcode-select -print-path)/Applications/Xcode.app iPhone/*.xcodeproj || open -a $(xcode-select -print-path)/Applications/Xcode.app iPadPrototype/*.xcodeproj"
 # alias ea='mvim -f ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
 # alias deps='mate ~/.babushka/deps'
 # 
