@@ -3,7 +3,7 @@
 .fseventsd
 Icon^M^M
 Thumbs.db
-
+**/xcuserdata
 dev-packages
 
 *.swp
@@ -15,7 +15,6 @@ build/
 *.perspective
 *.perspectivev3
 **/project.xcworkspace
-**/xcuserdata
 *.mode1v3
 *.mode2v3
 

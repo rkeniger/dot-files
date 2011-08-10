@@ -13,7 +13,7 @@ hgext.graphlog =
 hgext.bookmarks =
 purge = 
 hgbb = ~/.hgext/hgbb/hgbb.py
-svn = ~/.hgext/hgsubversion/hgsubversion
+#svn = ~/.hgext/hgsubversion/hgsubversion
 
 
 [alias]
