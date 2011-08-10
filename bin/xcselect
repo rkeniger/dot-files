@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+xcode_builds = `locate xcodebuild | grep -E 'xcodebuild$'`.split
+xcode_builds = xcode_builds.select {|path| File.exists? path}
+folders = xcode_builds.map {|p| p.sub( /\/usr\/bin.*/, '').chomp }
+
+other_xcode = folders.select { |f| f != `xcode-select -print-path`.chomp }
+puts other_xcode
+
+# switch
+ver = `#{other_xcode}/usr/bin/xcodebuild -version`
+puts "Change Xcode to #{other_xcode} #{ver}"
+`sudo xcode-select -switch #{other_xcode}`
+
