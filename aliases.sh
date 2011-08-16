@@ -30,6 +30,7 @@ alias dfh="df -h"
 alias xcwhich="xcode-select -print-path; $(xcode-select -print-path)/usr/bin/xcodebuild -version "
 alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
+alias xcb-qa='/Xcode42/usr/bin/xcodebuild -configuration "Ad Hoc QA"'
 alias goo="go oomp"
 
 function editprofile() {
