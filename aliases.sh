@@ -27,7 +27,8 @@ alias clear-kit="mv ~/.kit/packages ~/.Trash/"
 alias qlp="qlmanage -p"
 alias s="screen"
 alias dfh="df -h"
-alias xcwhich="xcode-select -print-path; $(xcode-select -print-path)/usr/bin/xcodebuild -version "
+alias xcwhich="xcode-select -print-path; xcodebuild -version"
+
 alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
 alias xcb-qa='/Xcode42/usr/bin/xcodebuild -configuration "Ad Hoc QA"'
@@ -133,6 +134,9 @@ alias gd='git diff'
 # alias m=mvim
 # 
 alias ox="open -a $(xcode-select -print-path)/Applications/Xcode.app *.xcodeproj"
+function ox () {
+    open -a  `xcode-select -print-path`/Applications/Xcode.app *.xcodeproj
+}
 # alias ea='mvim -f ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
 # alias deps='mate ~/.babushka/deps'
 # 
