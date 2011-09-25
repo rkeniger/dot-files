@@ -134,6 +134,7 @@ alias gd='git diff'
 # alias m=mvim
 # 
 function ox () {
+    echo "Opening" `xcode-select -print-path`
     open -a  `xcode-select -print-path`/Applications/Xcode.app *.xcodeproj
 }
 # alias ea='mvim -f ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
@@ -155,6 +156,8 @@ function go () {
 	fi
 }
 
-# alias make_six='sed -i "" "s,<integer>5</integer>,<integer>6</integer>," Resources/Info.plist'
-# alias make_six_qa='sed -i "" "s,<integer>5</integer>,<integer>6</integer>," Resources/Info-QA.plist'
-# 
+function desym
+{
+    /Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash -A -v $1 . | more
+}
+
