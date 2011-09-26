@@ -125,6 +125,7 @@ au FileType c source ~/.vim/c.vim
 "au FileType c noremap gc I/*<Esc>A*/<Esc>
 au FileType c set nosmarttab expandtab
 au FileType ruby set expandtab sw=2 ts=2
+au FileType make set noexpandtab
 "noremap ; :!cc % && ./a.out < ./answer.txt <CR>
 "##############################
 " {{{ PhpDocumnetor Include section
