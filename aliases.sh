@@ -134,7 +134,7 @@ alias gd='git diff'
 # alias m=mvim
 # 
 function ox () {
-    echo "Opening" `xcode-select -print-path`
+    echo "Opening Xcode in " `xcode-select -print-path`
     open -a  `xcode-select -print-path`/Applications/Xcode.app *.xcodeproj
 }
 # alias ea='mvim -f ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
