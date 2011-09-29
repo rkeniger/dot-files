@@ -17,6 +17,7 @@
 	ire = rebase -i
 	unwatch = update-index --assume-unchanged
 	watch = update-index --no-assume-unchanged
+	diffc = diff --staged
 
 [color]
 	diff = auto
