@@ -6,7 +6,6 @@
 	ci = commit
 	st = status
 	co = checkout
-	up = checkout
 	ss = stash save
 	sp = stash pop
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
@@ -18,6 +17,7 @@
 	unwatch = update-index --assume-unchanged
 	watch = update-index --no-assume-unchanged
 	diffc = diff --staged
+    smp = smart-pull
 
 [color]
 	diff = auto
