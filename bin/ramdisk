@@ -3,7 +3,7 @@ size=$1;
 # set -- $1
 orig=$size
 let "size=size*2000"
-volume_name="ramdisk $orig";
+volume_name="ramdisk$orig";
 
 if [[ $2 != "" ]]; then
 	volume_name="$2"

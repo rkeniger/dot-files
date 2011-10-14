@@ -46,7 +46,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 
 # Safari
 # Disable Safari’s thumbnail cache for History and Top Sites
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 0
 
 # Enable Safari’s debug menu
 defaults write com.apple.Safari IncludeDebugMenu -bool true

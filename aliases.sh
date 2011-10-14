@@ -31,7 +31,7 @@ alias xcwhich="xcode-select -print-path; xcodebuild -version"
 
 alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
-alias xcb-qa='/Xcode42/usr/bin/xcodebuild -configuration "Ad Hoc QA"'
+alias xcb-qa='xcodebuild -configuration "Ad Hoc QA"'
 alias goo="go oomp"
 
 function editprofile() {
@@ -63,7 +63,7 @@ else
 }
 
 # Symlink kit as a dev-package
-function link_kit() {
+function link-kit() {
 	PROJECT_DIRS="$HOME/Projects"
 	DPK="dev-packages"
 	if [[ -f "KitSpec" ]]; then		
@@ -134,7 +134,7 @@ alias gd='git diff'
 # alias m=mvim
 # 
 function ox () {
-    echo "Opening Xcode in " `xcode-select -print-path`
+    echo "Opening Xcode in" `xcode-select -print-path`
     open -a  `xcode-select -print-path`/Applications/Xcode.app *.xcodeproj
 }
 # alias ea='mvim -f ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
