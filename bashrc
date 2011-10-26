@@ -58,6 +58,10 @@ fi
 git_completion=/usr/local/etc/bash_completion.d/git-completion.bash
 if [ -f $git_completion ] ; then source $git_completion; fi
 
+# Brew Completion
+brew_completion=`brew --prefix`/Library/Contributions/brew_bash_completion.sh
+if [ -f $brew_completion ] ; then source $brew_completion; fi
+
 set -o vi
 # history (bigger size, no duplicates, always append):
 export HISTCONTROL=erasedups
