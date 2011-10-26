@@ -16,6 +16,7 @@ alias o="open -R"
 alias kax="ka Xcode"
 alias glat="git --no-pager log -n3"
 alias r='rake'
+alias rvm='CC=/usr/bin/gcc-4.2 rvm'
 
 # = Kit Related =
 alias k="kit"
