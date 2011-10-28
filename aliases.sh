@@ -33,7 +33,7 @@ alias xcwhich="xcode-select -print-path; xcodebuild -version"
 alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
 alias xcb-qa='xcodebuild -configuration "Ad Hoc QA"'
-alias goo="go oomp"
+alias goo="go oompf-i"
 
 function editprofile() {
 	if [[ $# -gt 0 ]]; then
