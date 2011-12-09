@@ -32,3 +32,5 @@
 	api-token = xxx
 	full-name = Kim Hunter
 	only-mine = true
+[mergetool]
+	keepBackup = true

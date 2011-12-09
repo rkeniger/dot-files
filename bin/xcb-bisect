@@ -1,5 +1,6 @@
 #!/bin/bash
-
+rm -rf ~/.kit/packages
+kit update 
 xcodebuild -configuration Debug || exit 125 
 
 # an exit code of 125 asks "git bisect"

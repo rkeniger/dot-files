@@ -33,7 +33,7 @@ alias xcwhich="xcode-select -print-path; xcodebuild -version"
 alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
 alias xcb-qa='xcodebuild -configuration "Ad Hoc QA"'
-alias goo="go oompf-i"
+alias goo="go oompf-ipad"
 
 function editprofile() {
 	if [[ $# -gt 0 ]]; then
@@ -78,6 +78,7 @@ function link-kit() {
 			ln -s $RES $(basename $RES)
 			cd ..
 			echo "Linked Package $RES"
+            kit up
 			return 0
 		else
 			echo "$RES isn't a kit"
