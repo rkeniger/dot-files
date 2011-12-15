@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 CUR_WD=`pwd`
 DP="dev-packages"
-if [[ -d $DP ]]; then
-	pushd $DP
-	for pkg in $DP;
+if [[ -d "$DP" ]]; then
+	pushd "$DP"
+	for pkg in "`pwd`/*";
 	do
-		pushd "$DP/$pkg"
+		pushd $pkg
 		git smart-pull
 		popd
 	done
@@ -13,8 +13,5 @@ if [[ -d $DP ]]; then
 fi
 
 pushd ~/.kit && git pull && popd
-popd
-
-kit
 
 cd $CUR_WD
