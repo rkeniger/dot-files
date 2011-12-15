@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+CUR_WD=`pwd`
+DP="dev-packages"
+if [[ -d $DP ]]; then
+	pushd $DP
+	for pkg in $DP;
+	do
+		pushd "$DP/$pkg"
+		git smart-pull
+		popd
+	done
+	popd
+fi
+
+pushd ~/.kit && git pull && popd
+popd
+
+kit
+
+cd $CUR_WD

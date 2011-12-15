@@ -20,8 +20,6 @@ alias rvm='CC=/usr/bin/gcc-4.2 rvm'
 
 # = Kit Related =
 alias k="kit"
-alias gok='pushd ~/.kit && git pull && popd'
-alias goku='gok && git pull && kit update'
 alias ku="rm -rdf build Kits ~/.kit/packages/*; kit update"
 alias clear-kit="mv ~/.kit/packages ~/.Trash/"
 
