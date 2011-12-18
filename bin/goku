@@ -1,20 +1,20 @@
-#!/usr/bin/env bash
-CUR_WD=`pwd`
+#!/usr/bin/env ruby     
+require "fileutils"
+
 DP="dev-packages"
-if [[ -d $DP ]]; then
-	pushd $DP
-	for pkg in $DP;
-	do
-		pushd "$DP/$pkg"
-		git smart-pull
-		popd
-	done
-	popd
-fi
+CUR_WD = FileUtils.pwd
 
-pushd ~/.kit && git pull && popd
-popd
+threads = []
+Dir.foreach DP do |dpkg|
+  next if dpkg =~ /^\.\.?$/
+  
+  Thread.new(File.expand_path DP+"/"+dpkg) {|path| `cd #{path} && git pull` }
+end
 
-kit
+threads.each {|t| t.join }
 
-cd $CUR_WD
+`cd ~/.kit && git pull`
+
+FileUtils.cd CUR_WD
+
+`kit`
