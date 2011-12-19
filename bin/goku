@@ -3,17 +3,23 @@ require "fileutils"
 
 DP="dev-packages"
 CUR_WD = FileUtils.pwd
-
 threads = []
+repo_paths = []
+
 Dir.foreach DP do |dpkg|
   next if dpkg =~ /^\.\.?$/
-  
-  Thread.new(File.expand_path DP+"/"+dpkg) {|path| `cd #{path} && git pull` }
+  repo_paths << File.expand_path(DP+"/"+dpkg)
+end
+repo_paths << File.expand_path("~/.kit")
+
+threads = repo_paths.map do |p| 
+  Thread.new(p) do |path|
+    `cd #{path} && git pull` 
+  end
 end
 
 threads.each {|t| t.join }
 
-`cd ~/.kit && git pull`
 
 FileUtils.cd CUR_WD
 
