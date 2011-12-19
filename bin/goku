@@ -1,21 +1,18 @@
 #!/usr/bin/env ruby     
 require "fileutils"
+
 KIT = "devkit"
-DP="dev-packages"
-PULL_CMD="smart-pull"
+DEV_PKG ="dev-packages"
+PULL_CMD ="smart-pull"
 CUR_WD = FileUtils.pwd
 
-repo_paths = []
-
-Dir.foreach DP do |dpkg|
+repo_paths = ["~/.kit", "."]
+Dir.foreach DEV_PKG do |dpkg|
   next if dpkg =~ /^\.\.?$/
-  repo_paths << "#{DP}/#{dpkg}"
+  repo_paths << "#{DEV_PKG}/#{dpkg}"
 end
-repo_paths << "~/.kit"
-repo_paths << "."
 
 repo_paths.map! { |path| File.expand_path path }
-
 repo_paths.map { |p| 
   Thread.new(p) do |path|
     puts "Pulling #{File.basename path}"  
@@ -26,5 +23,4 @@ repo_paths.map { |p|
 
 
 FileUtils.cd CUR_WD
-
 puts `#{KIT}`
