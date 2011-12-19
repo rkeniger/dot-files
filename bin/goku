@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby     
 require "fileutils"
-
+KIT = "devkit"
 DP="dev-packages"
 CUR_WD = FileUtils.pwd
 
@@ -21,4 +21,4 @@ repo_paths.map { |p|
 
 FileUtils.cd CUR_WD
 
-`kit`
+`#{KIT}`
