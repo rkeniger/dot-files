@@ -10,7 +10,7 @@ repo_paths = ["~/.kit", "."]
 Dir.foreach DEV_PKG do |dpkg|
   next if dpkg =~ /^\.\.?$/
   repo_paths << "#{DEV_PKG}/#{dpkg}"
-end
+end if File.exists? DEV_PKG
 
 repo_paths.map! { |path| File.expand_path path }
 repo_paths.map { |p| 
