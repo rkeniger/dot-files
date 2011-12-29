@@ -21,6 +21,6 @@ repo_paths.map { |p|
   end
 }.each {|t| t.join }
 
-
+`rm -rdf ~/.kit/packages`
 FileUtils.cd CUR_WD
 puts `#{KIT}`
