@@ -133,17 +133,9 @@ alias gd='git diff'
 # 
 # alias m=mvim
 # 
-function ox () {
-		if [[ $# -gt 0 ]]; then
-			pushd "$1";
-		fi
-    echo "Opening Xcode in" `xcode-select -print-path`
-    open -a  `xcode-select -print-path`/Applications/Xcode.app *.xcodeproj
-		if [[ $# -gt 0 ]]; then
-			popd;
-		fi
-}
-# alias ea='mvim -f ~/p/dot-files/aliases.sh && source ~/p/dot-files/aliases.sh'
+alias ox="xcselect -o"
+
+alias ea='mvim -f ~/.aliases.sh && source ~/.aliases.sh'
 # alias deps='mate ~/.babushka/deps'
 # 
 # alias gist="open http://gist.github.com"
