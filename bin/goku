@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby     
 require "fileutils"
 
-KIT = "devkit"
+KIT = "kit"
 DEV_PKG ="dev-packages"
 PULL_CMD ="smart-pull"
 CUR_WD = FileUtils.pwd
