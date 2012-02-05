@@ -1,12 +1,17 @@
 #!/usr/bin/env ruby
-puts ARGV
-raw_calls ="0x354a38bf 0x305e01e5 0x353fb275 0x4f407 0x4f987"
+if ARGV.size ==  0
+  puts "Usage: #{$0} [hexdigits] "
+  puts "Example: #{$0} 0x354a38bf 0x305e01e5 0x353fb275 0x4f407 0x4f987"
+  exit 1
+end
+
+raw_calls = ARGV
 
 #puts "xcrun -sdk iphoneos5.0 gdb/gdb-arm-apple-darwin *.app"
 puts "set print asm-demangle on"
 puts "set print symbol-filename on"
 
-raw_calls.split(' ').each do |i|
-  puts "p/a #{i}"
+raw_calls.each do |i|
+puts "p/a #{i}"
 end
 
