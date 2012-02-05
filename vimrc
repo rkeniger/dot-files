@@ -140,6 +140,7 @@ au FileType make set noexpandtab
 " :Man 4 echo to go to section for of the man page
 " \K to to open man page for word under cursor
 ":source $VIMRUNTIME/ftplugin/man.vim
+:source ~/.vim/leader.vim
 
 "##############################
 " 4 Spaceed indents for c files
