@@ -1,7 +1,7 @@
 
 # default path so if i reload i don't get slow downs
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-PATH=$PATH:~/.bin:~/Library/haskell/bin
+PATH=$PATH:~/.bin:~/Library/haskell/bin:/usr/texbin
 export PATH=/usr/local/sbin:$PATH
 
 # For mercurial

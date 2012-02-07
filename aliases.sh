@@ -42,7 +42,9 @@ function editprofile() {
 		return -1
 	fi
 }
-
+function repeter() {
+    yes "$*" | xargs say
+}
 function lookfor() {
   grep -EiIrl "$*" ./* | grep -v '.svn'
 }
