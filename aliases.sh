@@ -161,3 +161,4 @@ function desym
     /Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash -A -v $1 . | more
 }
 
+export DEV_FOLDER=/Applications/Xcode.app/Contents/Developer
