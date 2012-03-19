@@ -20,7 +20,7 @@ alias rvm='CC=/usr/bin/gcc-4.2 rvm'
 
 # = Kit Related =
 alias k="kit"
-alias ku="rm -rdf build Kits ~/.kit/packages/*; devkit update"
+alias ku="rm -rdf build Kits ~/.kit/packages/*; kit update"
 alias clear-kit="mv ~/.kit/packages ~/.Trash/"
 
 alias qlp="qlmanage -p"
