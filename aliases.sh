@@ -27,6 +27,8 @@ alias qlp="qlmanage -p"
 alias s="screen"
 alias dfh="df -h"
 alias xcwhich="xcode-select -print-path; xcodebuild -version"
+# remove Derived Data
+alias xcrmdd="rm -rdf ~/NoBackup/Xcode/DerivedData/"
 
 alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
