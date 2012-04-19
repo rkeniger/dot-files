@@ -15,7 +15,7 @@ end if File.exists? DEV_PKG
 repo_paths.map! { |path| File.expand_path path }
 repo_paths.map { |p| 
   Thread.new(p) do |path|
-    puts "Pulling #{File.basename path}"  
+    puts "Pulling #{File.basename path}\n"
     out = `cd #{path} && git #{PULL_CMD}` 
     puts out
   end
