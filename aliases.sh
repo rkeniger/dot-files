@@ -34,6 +34,7 @@ alias xcb="xcodebuild"
 alias xcb-debug="time xcodebuild -configuration Debug"
 alias xcb-qa='xcodebuild -configuration "Ad Hoc QA"'
 alias goo="go oompf-ipad"
+alias fuckingnetwork="networksetup -setairportpower  en1 off ; sleep 3; networksetup -setairportpower en1 on"
 
 function editprofile() {
 	if [[ $# -gt 0 ]]; then

@@ -72,7 +72,7 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
 defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
 defaults write com.apple.QuickTimePlayerX NSQuitAlwaysKeepsWindows -bool false
 
-# inable Dashboard dev mode (allows keeping widgets on the desktop)
+# enable Dashboard dev mode (allows keeping widgets on the desktop)
 defaults write com.apple.dashboard devmode -bool true
 
 # Reset Launchpad
