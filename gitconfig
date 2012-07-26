@@ -16,6 +16,7 @@
 	ire = rebase -i
 	unwatch = update-index --assume-unchanged
 	watch = update-index --no-assume-unchanged
+    ignored =!git ls-files -v | grep "^[[:lower:]]" | sed 's/^[a-z]/assume-unchanged -> /'
 	diffc = diff --staged
     smp = smart-pull
 
