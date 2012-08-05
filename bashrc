@@ -1,8 +1,8 @@
 
 # default path so if i reload i don't get slow downs
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:~/.bin:~/Library/haskell/bin:/usr/texbin
-export PATH=/usr/local/sbin:$PATH
+export PATH=$PATH
 
 # For mercurial
 export PYTHONPATH=/usr/local/lib/python2.5/site-packages:$PYTHONPATH
@@ -69,3 +69,5 @@ export HISTSIZE=10000
 shopt -s histappend
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
