@@ -1,6 +1,6 @@
 
 # default path so if i reload i don't get slow downs
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:~/.bin:~/Library/haskell/bin:/usr/texbin
 export PATH=$PATH
 
@@ -56,7 +56,10 @@ if [ -f /opt/local/etc/bash_completion ]; then
 fi
 # Git completion
 git_completion=/usr/local/etc/bash_completion.d/git-completion.bash
-if [ -f $git_completion ] ; then source $git_completion; fi
+if [ -f $git_completion ] ; then 
+    source $git_completion;
+    source /usr/local/etc/bash_completion.d/git-prompt.sh;
+fi
 
 # Brew Completion
 brew_completion=`brew --prefix`/Library/Contributions/brew_bash_completion.sh
