@@ -30,10 +30,10 @@ alias s="screen"
 alias dfh="df -h"
 alias xcwhich="xcode-select -print-path; xcodebuild -version"
 # remove Derived Data
-alias xcrmdd="rm -rdf ~/NoBackup/Xcode/DerivedData/"
+alias xcrmdd="rm -rdf ~/NoBackup/Xcode"
 
-alias xcb="xcodebuild"
-alias xcb-debug="time xcodebuild -configuration Debug"
+alias xcb="xcodebuild -jobs 8"
+alias xcb-debug="time xcodebuild -jobs 8 -configuration Debug"
 alias xcb-qa='xcodebuild -configuration "Ad Hoc QA"'
 alias goo="go oompf-ipad"
 alias fuckingnetwork="networksetup -setairportpower  en1 off ; sleep 3; networksetup -setairportpower en1 on"
@@ -163,7 +163,7 @@ function go () {
 
 function desym
 {
-    /Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash -A -v $1 . | more
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/Current/Resources/symbolicatecrash -A -v $1 . | more
 }
 
 export DEV_FOLDER=/Applications/Xcode.app/Contents/Developer
