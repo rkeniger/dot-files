@@ -107,6 +107,7 @@ nnoremap gy  :call <SID>ToggleYesNo()<cr>
 autocmd! bufwritepost .vimrc source %
 " }}} Auto commands
 
+au FileType crontab set nobackup nowritebackup
 "##############################
 " Map ; to run PHP parser check
 au FileType php source ~/.vim/php/php.vim 
