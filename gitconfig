@@ -24,7 +24,8 @@
 	diff = auto
 	status = auto
 	branch = auto
-
+[push]
+    #default = current
 [github]
 	user = bigkm
 [core]

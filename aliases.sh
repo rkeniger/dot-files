@@ -130,6 +130,7 @@ alias gc='git commit -v'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gco='git checkout'
+alias gm='git checkout master'
 # 
 # alias gitx="open -b nl.frim.GitX"
 # alias gm='git merge --no-ff'
