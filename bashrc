@@ -65,7 +65,7 @@ fi
 brew_completion=`brew --prefix`/Library/Contributions/brew_bash_completion.sh
 if [ -f $brew_completion ] ; then source $brew_completion; fi
 
-set -o vi
+#set -o vim
 # history (bigger size, no duplicates, always append):
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
