@@ -24,8 +24,6 @@
 	diff = auto
 	status = auto
 	branch = auto
-[push]
-    #default = current
 [github]
 	user = bigkm
 [core]
@@ -36,3 +34,5 @@
 	only-mine = true
 [mergetool]
 	keepBackup = true
+[push]
+	default = simple
