@@ -15,6 +15,7 @@ export COLOR_YELLOW='\e[1;33m'
 export COLOR_GRAY='\e[0;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors
+export LSCOLORS="exfxcxdxbxegedabagacad"
 
 source ~/.bashrc
 source ~/.aliases.sh

@@ -1,6 +1,6 @@
 [user]
-	name = Kim Hunter
-	email = bigkm1@gmail.com
+	name = Rob Keniger
+	email = rob@oomphhq.com
 
 [alias]
 	ci = commit
@@ -24,15 +24,21 @@
 	diff = auto
 	status = auto
 	branch = auto
+[push]
+    #default = current
 [github]
-	user = bigkm
+	user = rkeniger
 [core]
-	excludesfile = /Users/kim/.gitignore
+	excludesfile = /Users/rob/.gitignore
 [pivotal]
 	api-token = xxx
-	full-name = Kim Hunter
+	full-name = Rob Keniger
 	only-mine = true
 [mergetool]
 	keepBackup = true
-[push]
-	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

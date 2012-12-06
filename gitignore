@@ -1,29 +1,45 @@
+# xcode noise
+build
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+xcuserdata
+project.xcworkspace
+LocalHacks.xcconfig
+**/xcuserdata
+*.tm_build_errors
+
+# old skool
+.svn
+.cvs
+.hg
+
+# osx noise
 .DS_Store
 .VolumeIcon.icns
 .fseventsd
 Icon^M^M
 Thumbs.db
-**/xcuserdata
-dev-packages
 .pt
 *.swp
 *~.nib
 
-build/
 
-*.pbxuser
-*.perspective
-*.perspectivev3
-**/project.xcworkspace
-*.xcuserdatad
-*.mode1v3
-*.mode2v3
+#profile
 
-*.pyc 
-*~.nib/
+# Kit Noise
+Kits
+dev-packages
+oompf-ipad-*.tar.gz
+Generated
 
+#intellij
+.idea
 
-*.tm_build_errors
+#rvm (macruby for use as a quasi interactive obj-c shell)
+.rvmrc
 
-.svn
-.hg
+# uiautomation instruments
+instrumentscli*.trace

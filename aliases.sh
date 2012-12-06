@@ -31,7 +31,7 @@ alias s="screen"
 alias dfh="df -h"
 alias xcwhich="xcode-select -print-path; xcodebuild -version"
 # remove Derived Data
-alias xcrmdd="rm -rdf ~/NoBackup/Xcode"
+alias ddd="rm -rdf /Users/rob/Library/Developer/Xcode/DerivedData"
 
 alias xcb="xcodebuild -jobs 8"
 alias xcb-debug="time xcodebuild -jobs 8 -configuration Debug"
@@ -153,15 +153,21 @@ alias ea='mvim -f ~/.aliases.sh && source ~/.aliases.sh'
 # 
 # alias my_work="git log --since='2 month ago' --date=short --author=nkpart --pretty=format:\"%ad\" | uniq"
 # 
-function go () {
-	PROJECT_DIRS="$HOME/Projects"
-	RES=`find $PROJECT_DIRS -iname "${1}*" -maxdepth 1 | head -n 1`
-	if [[ "$RES" == "" ]]; then
-		cd "$PROJECT_DIRS"
-	else
-		cd "$RES"
-	fi
-}
+
+alias src="cd ~/src"
+alias "cd.."="cd .."
+
+# function go () {
+# 	PROJECT_DIRS="$HOME/Projects"
+# 	RES=`find $PROJECT_DIRS -iname "${1}*" -maxdepth 1 | head -n 1`
+# 	if [[ "$RES" == "" ]]; then
+# 		cd "$PROJECT_DIRS"
+# 	else
+# 		cd "$RES"
+# 	fi
+# }
+
+alias rehash="hash -r"
 
 function desym
 {
@@ -169,3 +175,65 @@ function desym
 }
 
 export DEV_FOLDER=/Applications/Xcode.app/Contents/Developer
+
+alias gopushtest="ssh deploy@oomph-integration.mogeneration.com"
+
+function ox() {
+  xcselect -o
+}
+
+function ku() {
+  pushd ~/.kit && rm -Rf packages && git pull && popd
+}
+
+function fp() {
+	PROJECT_DIR="$HOME/Projects"
+	echo `find "$PROJECT_DIR" -iname "${1}*" -maxdepth 1 | head -n 1`
+}
+
+function go () {
+  local PROJECT=`fp $1`
+
+  if [ -d "$PROJECT" ]; then
+    cd "$PROJECT"
+  else
+    echo "There is no project like:" $1
+  fi
+}
+
+function gu() {
+  if [ -n "$1" ]; then
+    local PROJECT=`fp $1`
+  else
+    local PROJECT=`pwd`
+  fi
+
+  if [ -d "$PROJECT" ]; then
+    cd "$PROJECT"
+  fi
+
+  git fetch origin && git rebase -p && kit update
+}
+
+function goku() {
+  if [ -n "$1" ]; then
+    local PROJECT=`fp $1`
+  else
+    local PROJECT=`pwd`
+  fi
+
+  echo "\nUpdating Kits"
+  ku
+
+  if [ -d "$PROJECT" ]; then
+    if [ -d "$PROJECT/dev-packages" ]; then
+      for package in `ls $PROJECT/dev-packages`; do
+        echo "\nUpdating $package"
+        gu "$package"
+      done
+    fi
+  fi
+
+  echo "\nUpdating `basename $PROJECT`"
+  gu `basename $PROJECT`
+}
