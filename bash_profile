@@ -1,3 +1,4 @@
+source ~/.git-completion.bash
 export COLOR_WHITE='\e[1;37m'
 export COLOR_BLACK='\e[0;30m'
 export COLOR_BLUE='\e[0;34m'
