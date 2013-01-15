@@ -132,6 +132,8 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gco='git checkout'
 alias gm='git checkout master'
+alias gcm='git commit -v -m'
+
 # 
 # alias gitx="open -b nl.frim.GitX"
 # alias gm='git merge --no-ff'
@@ -173,6 +175,10 @@ function desym
 {
     /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/Current/Resources/symbolicatecrash -A -v $1 . | more
 }
+
+alias symbolicate="/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash -v"
+
+export DEVELOPER_DIR=`xcode-select --print-path`
 
 export DEV_FOLDER=/Applications/Xcode.app/Contents/Developer
 
