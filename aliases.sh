@@ -116,7 +116,7 @@ function fill_file() {
   echo creating file of size ${1}mb
 }
 
-alias gl='git pull'
+alias gl='git smp'
 
 alias gs='git status -sb'
 alias glr='git pull --rebase'
@@ -131,8 +131,9 @@ alias gc='git commit -v'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gco='git checkout'
-alias gm='git checkout master'
+alias gm='git smart-merge'
 alias gcm='git commit -v -m'
+alias gbd='git branch -d'
 
 # 
 # alias gitx="open -b nl.frim.GitX"
@@ -218,7 +219,8 @@ function gu() {
     cd "$PROJECT"
   fi
 
-  git fetch origin && git rebase -p && kit update
+  kit update
+#  git fetch origin && git rebase -p && kit update
 }
 
 function goku() {
@@ -229,7 +231,7 @@ function goku() {
   fi
 
   echo "\nUpdating Kits"
-  ku
+ ku
 
   if [ -d "$PROJECT" ]; then
     if [ -d "$PROJECT/dev-packages" ]; then
@@ -243,3 +245,13 @@ function goku() {
   echo "\nUpdating `basename $PROJECT`"
   gu `basename $PROJECT`
 }
+
+alias bb='/usr/local/bin/bbedit'
+
+alias om='EXISTING_DIR=`pwd`;cd ~/Projects/oompf-ipad;ox;cd "$EXISTING_DIR"'
+alias ov='EXISTING_DIR=`pwd`;cd ~/Projects/oompf-ipad/oomph-ios-viewer;ox;cd "$EXISTING_DIR"'
+
+
+alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
+
+alias devkit='~/Projects/kit/dist/build/kit/kit'

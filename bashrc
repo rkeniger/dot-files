@@ -1,7 +1,7 @@
 
 # default path so if i reload i don't get slow downs
-PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-PATH=$PATH:~/.bin:~/Library/haskell/bin:/usr/texbin:~/bin
+PATH=~/Library/haskell/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=$PATH:~/.bin:/usr/texbin:~/bin
 export PATH=$PATH
 
 # For mercurial
@@ -22,7 +22,7 @@ export LESS="-R"
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
-export EDITOR='mate'
+export EDITOR='bbedit'
 export GIT_EDITOR=$EDITOR
 #export VISUAL="mate -r"
 export JAVA_OPTS="-Dfile.encoding=UTF-8"

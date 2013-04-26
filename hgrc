@@ -1,5 +1,6 @@
 [ui]
-username = Kim Hunter <bigkm1@gmail.com>
+username = Rob Keniger <rob@keniger.com>
+merge = Kaleidoscope
 
 [extensions]
 #alias =
@@ -14,7 +15,7 @@ hgext.bookmarks =
 purge = 
 #hgbb = ~/.hgext/hgbb/hgbb.py
 #svn = ~/.hgext/hgsubversion/hgsubversion
-
+hgext.extdiff =
 
 [alias]
 #fits in 1 terminal window if single line commit messages
@@ -26,3 +27,14 @@ llog = log --limit 10
 
 [web]
 cacerts = /etc/hg-dummy-cert.pem
+
+[extdiff]
+cmd.ksdiff = /usr/local/bin/ksdiff
+opts.ksdiff = --changeset --wait --filelist
+
+[ui]
+
+
+[merge-tools]
+Kaleidoscope.executable = /usr/local/bin/ksdiff
+Kaleidoscope.args = --merge --output $output --base $base -- $local $other
