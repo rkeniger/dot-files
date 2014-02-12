@@ -20,3 +20,7 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 
 source ~/.bashrc
 source ~/.aliases.sh
+
+alias CC='/usr/local/bin/gcc-4.2'
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

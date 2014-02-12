@@ -16,7 +16,7 @@ alias o="open -R"
 alias kax="ka Xcode"
 alias glat="git --no-pager log -n3"
 alias r='rake'
-alias rvm='CC=/usr/bin/gcc-4.2 rvm'
+
 
 alias fjson="python -mjson.tool"
 alias safari_curl='curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2"'
@@ -172,14 +172,15 @@ alias "cd.."="cd .."
 
 alias rehash="hash -r"
 
-function desym
-{
-    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/Current/Resources/symbolicatecrash -A -v $1 . | more
-}
-
-alias symbolicate="/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash -v"
 
 export DEVELOPER_DIR=`xcode-select --print-path`
+
+
+function desym
+{
+	SYMBOLICATE="$DEVELOPER_DIR/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/Current/Resources/symbolicatecrash"
+    `$SYMBOLICATE -A -v $1 . | bb`
+}
 
 export DEV_FOLDER=/Applications/Xcode.app/Contents/Developer
 
@@ -255,3 +256,4 @@ alias ov='EXISTING_DIR=`pwd`;cd ~/Projects/oompf-ipad/oomph-ios-viewer;ox;cd "$E
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
 alias devkit='~/Projects/kit/dist/build/kit/kit'
+alias git='hub'

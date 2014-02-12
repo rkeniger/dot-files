@@ -25,11 +25,12 @@
 	status = auto
 	branch = auto
 [push]
-    #default = current
+    default = current
 [github]
 	user = rkeniger
 [core]
 	excludesfile = /Users/rob/.gitignore_global
+	autocrlf = input
 [pivotal]
 	api-token = xxx
 	full-name = Rob Keniger

@@ -22,7 +22,7 @@ export LESS="-R"
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
-export EDITOR='bbedit'
+export EDITOR='vim'
 export GIT_EDITOR=$EDITOR
 #export VISUAL="mate -r"
 export JAVA_OPTS="-Dfile.encoding=UTF-8"
@@ -46,7 +46,27 @@ __git_ps1 ()
 function parse_git_branch {
        git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
 }
-export PS1='\[\e[0;31m\]$(hostname -s): \[\e[m\e[0;36m\]\w\[\e[m\e[0;32m\] $(__git_ps1 " (%s$(parse_git_branch))")\n$(echo -ne $SMILEY)\[\e[m\] '
+
+function parse_git_dirty() {                                                                                                
+  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
+}
+
+function parse_git_stash() {
+  local stash=`expr $(git stash list 2>/dev/null| wc -l)`
+
+  if [ "$stash" != "0" ]; then
+    echo "|stashed:$stash"
+  fi
+}
+
+function git_prompt() {
+  local ref="$(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f3 -f4)"
+  if [ "$ref" != "" ]; then
+    echo "($ref$(parse_git_stash))"
+  fi
+}
+
+export PS1='\[\e[0;31m\]$(hostname -s): \[\e[m\e[0;36m\]\w\[\e[m\e[0;32m\] $(git_prompt)\n$(echo -ne $SMILEY)\[\e[m\] '
 #PS1="\e[0;31m\h \e[m\e[0;36m\w\e[m\e[0;32m \$(__git_ps1)\e[m$ "
 
 function evil_git_dirty {
@@ -85,6 +105,8 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
+
+export ARCHFLAGS='-arch x86_64'
