@@ -21,6 +21,15 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 source ~/.bashrc
 source ~/.aliases.sh
 
-alias CC='/usr/local/bin/gcc-4.2'
-export PATH="$HOME/.rbenv/bin:$PATH"
+#alias CC='/usr/local/bin/gcc-4.2'
+#alias CC='/usr/bin/clang'
+#alias CC=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/gcc-4.2
+#alias CXX=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/g++-4.2
+#alias CPP=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/cpp-4.2
+#alias g++=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/g++-4.2
+export PATH="$HOME/.rbenv/bin:/usr/local/Cellar/ruby20/2.0.0-p481/bin:$PATH"
 eval "$(rbenv init -)"
+
+#export RBENV_ROOT=/usr/local/var/rbenv
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+

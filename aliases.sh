@@ -16,6 +16,10 @@ alias o="open -R"
 alias kax="ka Xcode"
 alias glat="git --no-pager log -n3"
 alias r='rake'
+alias mtv='cd ~/Projects/hydric/artistsmtv-ios'
+alias ow='open *.xcworkspace'
+alias how='hs;ow'
+alias hor='hr;ow'
 
 
 alias fjson="python -mjson.tool"
@@ -36,7 +40,9 @@ alias ddd="rm -rdf /Users/rob/Library/Developer/Xcode/DerivedData"
 alias xcb="xcodebuild -jobs 8"
 alias xcb-debug="time xcodebuild -jobs 8 -configuration Debug"
 alias xcb-qa='xcodebuild -configuration "Ad Hoc QA"'
-alias goo="go oompf-ipad"
+alias hs="cd ~/Projects/hydric/streamer-ios"
+alias hr="cd ~/Projects/hydric/streamer-refc-ios"
+
 alias fuckingnetwork="networksetup -setairportpower  en1 off ; sleep 3; networksetup -setairportpower en1 on"
 
 function editprofile() {
@@ -132,7 +138,7 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gco='git checkout'
 alias gm='git smart-merge'
-alias gcm='git commit -v -m'
+alias gcm='git commit -a -v -m'
 alias gbd='git branch -d'
 
 # 
@@ -187,7 +193,7 @@ export DEV_FOLDER=/Applications/Xcode.app/Contents/Developer
 alias gopushtest="ssh deploy@oomph-integration.mogeneration.com"
 
 function ox() {
-  xcselect -o
+  ruby ~/bin/openx.rb
 }
 
 function ku() {
@@ -257,3 +263,12 @@ alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 
 alias devkit='~/Projects/kit/dist/build/kit/kit'
 alias git='hub'
+
+function get() {
+	if [ -n "$1" ]; then
+		echo "git clone git@github.com:mogeneration/$1.git"
+		git clone "git@github.com:mogeneration/$1.git"
+	else
+		echo "need repo name"
+	fi
+}

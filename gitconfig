@@ -8,7 +8,7 @@
 	co = checkout
 	ss = stash save
 	sp = stash pop
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit --date=relative
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	lgp = log -p --reverse --pretty=format:'%Cred%h%Creset - %Cblue(%an)%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	submod = submodule
 	subrepo = submodule
@@ -57,3 +57,6 @@
 	tool = Kaleidoscope
 [push]
 	default = matching
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

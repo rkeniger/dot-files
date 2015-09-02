@@ -110,3 +110,5 @@ shopt -s histappend
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 
 export ARCHFLAGS='-arch x86_64'
+
+export ACTIVATOR_OPTS="-Dapple.apn.env=APNS_SANDBOX -Dconfig.file=/Users/rob/Projects/skedulocomplete/skedulo/conf/mobiletest2.conf -Dhttps.port=1443"
