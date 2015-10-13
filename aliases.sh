@@ -272,3 +272,9 @@ function get() {
 		echo "need repo name"
 	fi
 }
+
+# j for autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+alias jl='j -l'
+alias jt='j -t recent'
+alias jr='j -t rank'
